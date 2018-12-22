@@ -7,17 +7,20 @@ import androidx.recyclerview.widget.RecyclerView
 import base.unifor.br.baserecyclerview.item.BaseItem
 import java.util.ArrayList
 
-open abstract class BaseRecyclerViewAdapter(val resId: Int): RecyclerView.Adapter<BaseItem>() {
+open abstract class BaseRecyclerViewAdapter<VH: BaseItem>(val resId: Int): RecyclerView.Adapter<BaseItem>() {
     var items: ArrayList<Any> = ArrayList()
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseItem {
+        val view = LayoutInflater.from(parent.context).inflate(resId, parent, false)
 
+        return BaseItem(view)
+    }
     override fun getItemCount(): Int {
        return items.size
     }
 
     override fun onBindViewHolder(holder: BaseItem, position: Int) {
        holder.bind(items[position])
-
     }
 
     fun addItem(item: Any){
@@ -29,5 +32,8 @@ open abstract class BaseRecyclerViewAdapter(val resId: Int): RecyclerView.Adapte
         items.remove(item)
         notifyDataSetChanged()
     }
+
+
+
 
 }

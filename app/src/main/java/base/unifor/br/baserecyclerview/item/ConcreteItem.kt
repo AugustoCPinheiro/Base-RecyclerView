@@ -11,6 +11,5 @@ class ConcreteItem(itemView: View):BaseItem(itemView) {
         with(itemView){
             text_view_name.text = concreteItem.name
         }
-
     }
 }

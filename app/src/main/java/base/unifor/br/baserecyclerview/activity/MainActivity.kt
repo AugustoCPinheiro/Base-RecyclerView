@@ -2,6 +2,7 @@ package base.unifor.br.baserecyclerview.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import base.unifor.br.baserecyclerview.R
 import base.unifor.br.baserecyclerview.adapter.ConcreteAdapter
